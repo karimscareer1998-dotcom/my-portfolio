@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohammed Karimulla | Social Media Marketing Executive</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #050505;
+            --surface-color: #121212;
+            --surface-light: #1e1e1e;
+            --text-main: #f4f4f5;
+            --text-muted: #a1a1aa;
+            --accent-color: #FF6B00;
+            --accent-hover: #e65c00;
+            --border-color: #27272a;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg-color); color: var(--text-main); line-height: 1.6; overflow-x: hidden; scroll-behavior: smooth; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Space Grotesk', sans-serif; font-weight: 700; line-height: 1.2; }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+        img { max-width: 100%; height: auto; display: block; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 5%; }
+        .section-padding { padding: 100px 0; }
+        .section-header { margin-bottom: 60px; text-align: center; }
+        .section-tag { color: var(--accent-color); font-size: 0.875rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 600; margin-bottom: 10px; display: block; }
+        .section-title { font-size: 2.5rem; margin-bottom: 20px; }
+        .btn { display: inline-block; padding: 14px 32px; background-color: var(--accent-color); color: #fff; font-weight: 600; border-radius: 50px; transition: all 0.3s ease; cursor: pointer; border: none; font-size: 1rem; }
+        .btn:hover { background-color: var(--accent-hover); transform: translateY(-2px); box-shadow: 0 10px 20px rgba(255, 107, 0, 0.2); }
+        .btn-outline { background-color: transparent; border: 2px solid var(--accent-color); color: var(--accent-color); }
+        .btn-outline:hover { background-color: var(--accent-color); color: #fff; }
+        .animate-on-scroll { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
+        .animate-on-scroll.show { opacity: 1; transform: translateY(0); }
+        nav { position: fixed; top: 0; width: 100%; padding: 20px 5%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; background: rgba(5, 5, 5, 0.8); backdrop-filter: blur(10px); z-index: 100; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .logo { font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; font-weight: 700; color: #fff; letter-spacing: -1px; }
+        .logo span { color: var(--accent-color); }
+        .nav-links { display: flex; gap: 30px; flex-wrap: wrap; justify-content: flex-end; }
+        .nav-links a { font-size: 0.9rem; font-weight: 500; color: var(--text-muted); transition: color 0.3s ease; }
+        .nav-links a:hover { color: var(--accent-color); }
+        .hero { height: 100vh; display: flex; align-items: center; position: relative; padding-top: 80px; }
+        .hero-content { max-width: 800px; }
+        .hero-greeting { display: inline-block; padding: 8px 16px; background: rgba(255, 107, 0, 0.1); color: var(--accent-color); border-radius: 50px; font-size: 0.9rem; font-weight: 600; margin-bottom: 20px; border: 1px solid rgba(255, 107, 0, 0.2); }
+        .hero-title { font-size: clamp(3rem, 6vw, 5rem); margin-bottom: 20px; letter-spacing: -2px; }
+        .hero-desc { font-size: 1.25rem; color: var(--text-muted); margin-bottom: 40px; max-width: 600px; }
+        .hero-btns { display: flex; gap: 20px; }
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: flex-start; }
+        .about-image { width: 100%; max-width: 400px; border-radius: 24px; margin-bottom: 30px; border: 1px solid var(--border-color); box-shadow: 0 15px 40px rgba(0,0,0,0.5); transition: transform 0.3s ease, border-color 0.3s ease; }
+        .about-image:hover { transform: translateY(-5px); border-color: var(--accent-color); }
+        .about-text p { margin-bottom: 20px; font-size: 1.1rem; color: var(--text-muted); }
+        .skills-container { background: var(--surface-color); padding: 40px; border-radius: 20px; border: 1px solid var(--border-color); }
+        .skill-category { margin-bottom: 30px; }
+        .skill-category:last-child { margin-bottom: 0; }
+        .skill-category h4 { margin-bottom: 15px; font-size: 1.2rem; color: #fff; }
+        .skill-tags { display: flex; flex-wrap: wrap; gap: 10px; }
+        .skill-tag { background: var(--surface-light); padding: 8px 16px; border-radius: 8px; font-size: 0.9rem; color: var(--text-muted); border: 1px solid var(--border-color); transition: all 0.3s ease; }
+        .skill-tag:hover { border-color: var(--accent-color); color: var(--accent-color); transform: translateY(-2px); }
+        .experience-list { display: flex; flex-direction: column; gap: 40px; max-width: 900px; margin: 0 auto; }
+        .experience-card { background: var(--surface-color); padding: 40px; border-radius: 20px; border: 1px solid var(--border-color); position: relative; transition: all 0.3s ease; }
+        .experience-card:hover { border-color: var(--accent-color); transform: translateY(-5px); }
+        .exp-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; flex-wrap: wrap; gap: 10px; }
+        .exp-title { font-size: 1.5rem; color: #fff; }
+        .exp-company { color: var(--accent-color); font-weight: 600; font-size: 1.1rem; margin-top: 5px; }
+        .exp-duration { background: var(--surface-light); padding: 6px 14px; border-radius: 50px; font-size: 0.85rem; color: var(--text-muted); border: 1px solid var(--border-color); }
+        .exp-responsibilities { list-style-type: disc; padding-left: 20px; color: var(--text-muted); }
+        .exp-responsibilities li { margin-bottom: 10px; line-height: 1.6; }
+        .projects-grid { display: grid; grid-template-columns: 1fr; gap: 30px; max-width: 900px; margin: 0 auto; }
+        .project-card { background: var(--surface-color); border-radius: 20px; padding: 40px; border: 1px solid var(--border-color); transition: all 0.3s ease; }
+        .project-card:hover { border-color: rgba(255, 255, 255, 0.2); }
+        .project-title { font-size: 1.8rem; margin-bottom: 15px; color: var(--accent-color); }
+        .project-desc { color: var(--text-muted); font-size: 1.1rem; margin-bottom: 20px; }
+        .project-features { list-style-type: disc; padding-left: 20px; color: var(--text-muted); }
+        .project-features li { margin-bottom: 8px; }
+        .folders-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 25px; margin-bottom: 50px; }
+        .folder-card { background: var(--surface-color); border: 1px solid var(--border-color); border-radius: 16px; padding: 40px 20px; display: flex; flex-direction: column; align-items: center; text-align: center; cursor: pointer; transition: all 0.3s ease; position: relative; overflow: hidden; }
+        .folder-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: var(--accent-color); transform: scaleX(0); transform-origin: left; transition: transform 0.3s ease; }
+        .folder-card:hover { transform: translateY(-5px); border-color: rgba(255, 255, 255, 0.2); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .folder-card:hover::before, .folder-card.active::before { transform: scaleX(1); }
+        .folder-card.active { background: var(--surface-light); border-color: var(--accent-color); }
+        .folder-icon { font-size: 3.5rem; color: var(--accent-color); margin-bottom: 15px; transition: transform 0.3s ease; }
+        .folder-card:hover .folder-icon { transform: scale(1.1); }
+        .folder-title { font-size: 1.2rem; font-weight: 600; color: #fff; }
+        .folder-content { display: none; animation: fadeIn 0.5s ease forwards; }
+        .folder-content.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .folder-link { display: inline-flex; align-items: center; gap: 10px; color: var(--accent-color); font-weight: 600; }
+        .folder-link i { font-size: 1.1rem; }
+        .samples-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; margin-bottom: 20px; }
+        .sample-card { border-radius: 20px; border: 1px solid var(--border-color); background: var(--surface-color); overflow: hidden; box-shadow: 0 16px 40px rgba(0,0,0,0.2); transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease; }
+        .sample-card a { display: block; }
+        .sample-card:hover { transform: translateY(-4px); border-color: rgba(255, 107, 0, 0.35); box-shadow: 0 22px 46px rgba(0,0,0,0.3); }
+        .sample-thumb { position: relative; overflow: hidden; aspect-ratio: 16 / 9; border-bottom: 1px solid var(--border-color); background: #111; }
+        .sample-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.45s ease; }
+        .sample-card:hover .sample-thumb img { transform: scale(1.08); }
+        .sample-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(5,5,5,0.08) 0%, rgba(5,5,5,0.02) 54%, rgba(5,5,5,0.22) 100%); z-index: 2; }
+        .sample-duration { position: absolute; right: 10px; bottom: 10px; z-index: 4; padding: 4px 8px; border-radius: 8px; background: rgba(0,0,0,0.78); color: #fff; font-size: 0.82rem; font-weight: 600; line-height: 1; }
+        .sample-body { padding: 18px 18px 20px; }
+        .sample-heading { font-size: 1.08rem; margin-bottom: 10px; color: #fff; }
+        .sample-cta { display: inline-flex; align-items: center; gap: 8px; color: var(--accent-color); font-weight: 600; font-size: 0.95rem; }
+        .play-button { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.86); width: 72px; height: 72px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; background: rgba(255, 107, 0, 0.9); color: #fff; font-size: 1.9rem; box-shadow: 0 14px 30px rgba(0,0,0,0.3); opacity: 0; transition: opacity 0.3s ease, transform 0.3s ease; z-index: 3; }
+        .sample-card.video-card:hover .play-button { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+        .samples-footer { display: flex; justify-content: flex-end; align-items: center; gap: 16px; flex-wrap: wrap; padding-top: 4px; }
+        .samples-empty { grid-column: 1 / -1; padding: 26px; border-radius: 18px; border: 1px dashed var(--border-color); background: rgba(255,255,255,0.02); color: var(--text-muted); text-align: center; }
+        .contact-container { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; background: var(--surface-color); padding: 48px; border-radius: 24px; border: 1px solid var(--border-color); }
+        .contact-info h3 { font-size: 2.5rem; margin-bottom: 20px; }
+        .contact-info p { color: var(--text-muted); margin-bottom: 24px; font-size: 1.1rem; }
+        .contact-links { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+        .contact-chip { display: inline-flex; align-items: center; gap: 10px; min-height: 52px; padding: 0 20px; border-radius: 999px; background: rgba(255, 255, 255, 0.04); border: 1px solid var(--border-color); color: var(--text-main); font-weight: 500; }
+        .contact-chip i { display: flex; align-items: center; justify-content: center; font-size: 1.2rem; }
+        .social-link { display: inline-flex; align-items: center; gap: 10px; min-height: 52px; padding: 0 22px; border-radius: 999px; background: var(--surface-light); border: 1px solid var(--border-color); transition: all 0.3s ease; font-weight: 600; }
+        .social-link:hover { background: var(--accent-color); border-color: var(--accent-color); color: #fff; transform: translateY(-3px); }
+        .social-link i { font-size: 1.2rem; }
+        footer { padding: 40px 0; text-align: center; border-top: 1px solid var(--border-color); color: var(--text-muted); font-size: 0.9rem; }
+        @media (max-width: 992px) { .about-grid, .contact-container, .exp-header { grid-template-columns: 1fr; } .hero-title { font-size: 3.5rem; } }
+        @media (max-width: 768px) { nav { padding: 16px 5%; align-items: flex-start; } .nav-links { width: 100%; gap: 16px; justify-content: flex-start; overflow-x: auto; padding-bottom: 4px; scrollbar-width: none; } .nav-links::-webkit-scrollbar { display: none; } .section-padding { padding: 60px 0; } .hero-title { font-size: 2.8rem; } .hero-btns { flex-direction: column; } .contact-container { padding: 32px 24px; gap: 32px; } .experience-card, .project-card { padding: 30px; } .folders-grid { grid-template-columns: 1fr 1fr; } .samples-grid { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 480px) { .folders-grid { grid-template-columns: 1fr; } .samples-grid { grid-template-columns: 1fr; } .contact-links { flex-direction: column; align-items: stretch; } .contact-chip, .social-link { justify-content: center; width: 100%; } }
+    </style>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+    <nav>
+        <a href="#home" class="logo" aria-label="Go to top of portfolio">MK<span>.</span></a>
+        <div class="nav-links"><a href="#about">About</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#work">Work Samples</a><a href="#contact">Contact</a></div>
+    </nav>
+    <section class="hero" id="home"><div class="container"><div class="hero-content animate-on-scroll"><span class="hero-greeting">&#128075; Hi, I'm Mohammed Karimulla</span><h1 class="hero-title">Social Media Marketing Executive</h1><p class="hero-desc">Turning ideas into scroll-stopping content.</p><div class="hero-btns"><a href="#work" class="btn">View My Work</a><a href="#contact" class="btn btn-outline">Let's Talk</a></div></div></div></section>
+    <section class="section-padding" id="about"><div class="container"><div class="about-grid"><div class="about-text animate-on-scroll"><span class="section-tag">About Me</span><h2 class="section-title" style="margin-bottom: 0;">Driving engagement and visibility.</h2><img src="Karim1.png" alt="Mohammed Karimulla" class="about-image" style="margin-top: 10px;"><p>Social Media Marketing Executive with 2 years of experience building and managing brand presence across multiple platforms. Skilled in content creation, campaign execution, and analytics to drive engagement and visibility.</p><p>Experienced in running targeted ad campaigns that generate quality leads.</p></div><div class="skills-container animate-on-scroll" style="transition-delay: 0.2s;"><div class="skill-category"><h4>Core Skills</h4><div class="skill-tags"><span class="skill-tag">Marketing Strategy</span><span class="skill-tag">Content Creation</span><span class="skill-tag">Social Media Management</span><span class="skill-tag">Ad Campaign Management</span><span class="skill-tag">Analytics & Reporting</span><span class="skill-tag">Community Engagement</span><span class="skill-tag">Trend Research</span></div></div><div class="skill-category"><h4>Tools</h4><div class="skill-tags"><span class="skill-tag">Canva</span><span class="skill-tag">CapCut</span><span class="skill-tag">Figma</span><span class="skill-tag">Google Keyword Planner</span><span class="skill-tag">PowerPoint</span><span class="skill-tag">Google Slides</span><span class="skill-tag">vidIQ</span><span class="skill-tag">DaVinci Resolve (Basics)</span></div></div><div class="skill-category"><h4>AI Tools</h4><div class="skill-tags"><span class="skill-tag">ChatGPT</span><span class="skill-tag">Gemini</span><span class="skill-tag">Claude</span><span class="skill-tag">Runway</span><span class="skill-tag">ElevenLabs</span><span class="skill-tag">Meta AI</span><span class="skill-tag">n8n automation</span></div></div></div></div></div></section>
+    <section class="section-padding" id="experience" style="background-color: var(--surface-light);"><div class="container"><div class="section-header animate-on-scroll"><span class="section-tag">Career</span><h2 class="section-title">Work Experience</h2></div><div class="experience-list"><div class="experience-card animate-on-scroll"><div class="exp-header"><div><h3 class="exp-title">SMM Executive</h3><div class="exp-company">Snovasys Software Solutions Ltd</div></div><span class="exp-duration">July 2024 – Present</span></div><ul class="exp-responsibilities"><li>Designed engaging content (posts, carousels, infographics)</li><li>Created short & long-form videos (product demos, walkthroughs)</li><li>Managed content calendar</li><li>Conducted webinars</li><li>Ran Meta Ads, Google Ads, YouTube Ads campaigns</li><li>Managed LinkedIn, Instagram, Facebook, Twitter, YouTube accounts</li><li>Trend research and viral content creation</li></ul></div><div class="experience-card animate-on-scroll" style="transition-delay: 0.1s;"><div class="exp-header"><div><h3 class="exp-title">Technical Recruiter</h3><div class="exp-company">MYSearch</div></div><span class="exp-duration">June 2022 – May 2023</span></div><ul class="exp-responsibilities"><li>Sourced candidates using LinkedIn & Naukri</li><li>Conducted screenings</li><li>Managed hiring process end-to-end</li><li>Built candidate pipelines</li></ul></div></div></div></section>
+    <section class="section-padding" id="projects"><div class="container"><div class="section-header animate-on-scroll"><span class="section-tag">Featured Work</span><h2 class="section-title">Project</h2></div><div class="projects-grid"><div class="project-card animate-on-scroll"><h3 class="project-title">AI Social Media Management App</h3><p class="project-desc">A comprehensive platform designed to streamline the social media workflow leveraging Artificial Intelligence.</p><ul class="project-features"><li>Built a social media management app</li><li>Focused on automation, content ideas, and workflow efficiency</li></ul></div></div></div></section>
+    <section class="section-padding" id="work" style="background-color: var(--surface-light);"><div class="container"><div class="section-header animate-on-scroll"><span class="section-tag">Visuals</span><h2 class="section-title">Creative Work Samples</h2><p style="color: var(--text-muted); max-width: 600px; margin: 0 auto;">Select a category below to explore my visual content and campaign creatives.</p></div><div class="folders-grid animate-on-scroll"><div class="folder-card active" data-target="posts"><i class="ph ph-image folder-icon"></i><div class="folder-title">Social Media Posts</div></div><div class="folder-card" data-target="videos"><i class="ph ph-video-camera folder-icon"></i><div class="folder-title">Video Content</div></div><div class="folder-card" data-target="ads"><i class="ph ph-megaphone folder-icon"></i><div class="folder-title">Ad Creatives / Banners</div></div></div><div class="folder-contents-container animate-on-scroll"><div class="folder-content active" id="content-posts"><div class="samples-grid"></div><div class="samples-footer"><a href="https://drive.google.com/drive/folders/1MC-foiUjGLhO9iyjoTIHQ29P610EjELy" target="_blank" rel="noopener noreferrer" class="folder-link">Open post samples <i class="ph ph-arrow-up-right"></i></a></div></div><div class="folder-content" id="content-videos"><div class="samples-grid"></div><div class="samples-footer"><a href="https://drive.google.com/drive/folders/12YzK-lSWWrbVc69aT_0P4I61Hwe0uylb" target="_blank" rel="noopener noreferrer" class="folder-link">Open video samples <i class="ph ph-arrow-up-right"></i></a></div></div><div class="folder-content" id="content-ads"><div class="samples-grid"></div><div class="samples-footer"><a href="https://drive.google.com/drive/folders/1rdIvDojeyd8CH-c-t5nC7dD6HUSdsYIS" target="_blank" rel="noopener noreferrer" class="folder-link">Open ad samples <i class="ph ph-arrow-up-right"></i></a></div></div></div></div></section>
+    <section class="section-padding" id="contact"><div class="container"><div class="contact-container animate-on-scroll"><div class="contact-info"><span class="section-tag">Get in Touch</span><h3>Ready to elevate your brand's social presence?</h3><p>Whether you need a complete social strategy overhaul, targeted ad campaigns, or eye-catching content, I'm ready to help you achieve your goals. Let's create something impactful together.</p><div class="contact-links"><div class="contact-chip"><i class="ph ph-envelope-simple"></i><span>karimscareer1998@gmail.com</span></div><a href="https://www.linkedin.com/in/mohammed-karimulla-digital-marketer/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3B3Q1V%2B7b0TNKiSX7W2VSuBQ%3D%3D" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Open LinkedIn profile"><i class="ph ph-linkedin-logo"></i><span>LinkedIn</span></a></div></div><div class="contact-form-wrapper" style="display: flex; align-items: center; justify-content: center;"><a href="https://mail.google.com/mail/?view=cm&fs=1&to=karimscareer1998@gmail.com&su=Hiring%20Inquiry&body=Hi%20Mohammed%2C%0A%0AI%20found%20your%20portfolio%20and%20would%20like%20to%20discuss%20an%20opportunity." target="_blank" rel="noopener noreferrer" class="btn" style="font-size: 1.2rem; padding: 20px 40px; display: inline-flex; align-items: center;"><i class="ph ph-paper-plane-tilt" style="margin-right: 10px; font-size: 1.5rem;"></i> Hire Me</a></div></div></div></section>
+    <footer><div class="container"><p>&copy; <span id="current-year"></span> Mohammed Karimulla. All rights reserved.</p></div></footer>
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => { anchor.addEventListener('click', function (e) { e.preventDefault(); const targetId = this.getAttribute('href'); if (targetId === '#') return; const targetElement = document.querySelector(targetId); if (targetElement) { targetElement.scrollIntoView({ behavior: 'smooth' }); } }); });
+        const observerOptions = { root: null, rootMargin: '0px', threshold: 0.15 };
+        const observer = new IntersectionObserver((entries, observerRef) => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('show'); observerRef.unobserve(entry.target); } }); }, observerOptions);
+        document.querySelectorAll('.animate-on-scroll').forEach(element => { observer.observe(element); });
+        const folders = document.querySelectorAll('.folder-card');
+        const contents = document.querySelectorAll('.folder-content');
+        folders.forEach(folder => { folder.addEventListener('click', () => { folders.forEach(f => f.classList.remove('active')); contents.forEach(c => c.classList.remove('active')); folder.classList.add('active'); const target = folder.getAttribute('data-target'); document.getElementById(`content-${target}`).classList.add('active'); }); });
+        const GOOGLE_API_KEY = 'AIzaSyAhXd4ZMu8EL00sFNWAkCXAq82fPlHoB1M';
+        const DRIVE_FOLDERS = { posts: { id: '1MC-foiUjGLhO9iyjoTIHQ29P610EjELy', cta: 'View sample' }, videos: { id: '12YzK-lSWWrbVc69aT_0P4I61Hwe0uylb', cta: 'Watch sample' }, ads: { id: '1rdIvDojeyd8CH-c-t5nC7dD6HUSdsYIS', cta: 'View sample' } };
+        function escapeHtml(value) { return value.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;').replaceAll("'", '&#39;'); }
+        function formatTitle(name) { return name.replace(/\.[^/.]+$/, '').replace(/[_-]+/g, ' ').trim(); }
+        function formatDuration(durationMillis) { if (!durationMillis) return ''; const totalSeconds = Math.max(1, Math.floor(Number(durationMillis) / 1000)); const hours = Math.floor(totalSeconds / 3600); const minutes = Math.floor((totalSeconds % 3600) / 60); const seconds = totalSeconds % 60; if (hours > 0) { return `${hours}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`; } return `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`; }
+        function getThumbUrl(file) { if (file.thumbnailLink) { return file.thumbnailLink.replace(/=s\d+/, '=s1200'); } return `https://drive.google.com/thumbnail?id=${file.id}&sz=w1200`; }
+        function renderSampleCard(file, config) { const title = escapeHtml(formatTitle(file.name || 'Untitled sample')); const href = escapeHtml(file.webViewLink || `https://drive.google.com/file/d/${file.id}/view`); const imgUrl = escapeHtml(getThumbUrl(file)); const isVideo = file.mimeType && file.mimeType.includes('video'); const duration = isVideo ? formatDuration(file.videoMediaMetadata?.durationMillis) : ''; return `<article class="sample-card${isVideo ? ' video-card' : ''}"><a href="${href}" target="_blank" rel="noopener noreferrer"><div class="sample-thumb"><img src="${imgUrl}" alt="${title}" loading="lazy">${isVideo ? '<span class="play-button"><i class="ph-fill ph-play"></i></span>' : ''}<div class="sample-overlay"></div>${duration ? `<span class="sample-duration">${escapeHtml(duration)}</span>` : ''}</div><div class="sample-body"><h4 class="sample-heading">${title}</h4><span class="sample-cta">${config.cta} <i class="ph ph-arrow-up-right"></i></span></div></a></article>`; }
+        async function loadDriveSamples(category, config) { const container = document.querySelector(`#content-${category} .samples-grid`); container.innerHTML = '<div class="samples-empty">Loading work samples...</div>'; const query = encodeURIComponent(`'${config.id}' in parents and trashed = false`); const fields = encodeURIComponent('files(id,name,mimeType,thumbnailLink,webViewLink,videoMediaMetadata(durationMillis))'); const url = `https://www.googleapis.com/drive/v3/files?q=${query}&pageSize=6&orderBy=createdTime desc&fields=${fields}&key=${GOOGLE_API_KEY}`; try { const response = await fetch(url); const data = await response.json(); if (!response.ok || data.error) { throw new Error(data.error?.message || 'Unable to load Drive files.'); } const files = (data.files || []).filter(file => file.mimeType && (file.mimeType.startsWith('image/') || file.mimeType.startsWith('video/'))); if (files.length === 0) { container.innerHTML = '<div class="samples-empty">No visible image or video files found in this Drive folder yet.</div>'; return; } container.innerHTML = files.map(file => renderSampleCard(file, config)).join(''); } catch (error) { console.error(`Failed to load ${category} samples`, error); container.innerHTML = '<div class="samples-empty">Could not load your Drive previews. Check folder sharing and API key restrictions.</div>'; } }
+        Object.entries(DRIVE_FOLDERS).forEach(([category, config]) => { loadDriveSamples(category, config); });
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
